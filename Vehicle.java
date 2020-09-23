@@ -57,17 +57,7 @@ public class Vehicle {
 		}
 		System.out.println("Total repair cost : " + sum);
 		Garage.remove(0);
-//		Garage.remove("Ford");
-		 
-//		for(Vehicle obj : Garage) {
-//			System.out.println(Garage.toString());
-//		}
-//		for(Vehicle obj : Garage) {
-//			if (obj instanceof Car) {
-//				 Van target = (Car) obj;
-//				
-//			}
-//		}
+		Garage.clear();
 	
 		}
 }
