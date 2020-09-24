@@ -8,7 +8,6 @@ public class Vehicle {
 	//Attributes
 	protected String brand;
 	protected int price;
-	static ArrayList<Vehicle> Garage = new ArrayList<>();
 	
 	//Constructors
 	public Vehicle() {
@@ -26,16 +25,19 @@ public class Vehicle {
 		return price;
 	}
 	
+	public String getBrand() {
+		return brand;
+	}
 	
 	
 //	public int getBrand() {
 //		return Brand;
 //	}
 //	
-//	@Override
-//	public String toString() {
-//		return "Class: "+ this.getClass().getName();
-//	}
+	@Override
+	public String toString() {
+		return "Class: "+ this.getClass().getName();
+	}
 	
 	public static void main(String[] args) {
 		//functionality
@@ -45,6 +47,9 @@ public class Vehicle {
 		Vehicle lorry1 = new Lorry("Volvo", 800, 18);
 		Vehicle car2 = new Car("Merc", 2800, "UK");
 		
+		ArrayList<Vehicle> Garage = new ArrayList<>();
+		//create a new temporary list
+		ArrayList<Vehicle> modList = new ArrayList<>();
 		Garage.add(car1);
 		Garage.add(van1);
 		Garage.add(lorry1);
@@ -53,11 +58,18 @@ public class Vehicle {
 		float sum = 0f;
 		for(Vehicle obj : Garage) {
 			//System.out.println(obj.getPrice());
+			if(obj.brand != "Ford") {
+				//if the brand of does not match Ford add it to the new temp list
+				modList.add(obj);
+			}
 			sum += obj.getPrice();
-		}
+			}
+		//replace the new list with the temp list to remove all String "Ford"
+		Garage = modList;
+		System.out.println(Garage.toString());
+		
 		System.out.println("Total repair cost : " + sum);
-		Garage.remove(0);
-		Garage.clear();
-	
+		//Garage.remove(0);//remove index 0
+		//Garage.clear();//clear whole ArrayList
 		}
 }
