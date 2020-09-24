@@ -66,9 +66,18 @@ public class Vehicle {
 			}
 		//replace the new list with the temp list to remove all String "Ford"
 		Garage = modList;
-		System.out.println(Garage.toString());
 		
-		System.out.println("Total repair cost : " + sum);
+		//to print new quote price after removal of Ford cars
+		System.out.println(Garage.toString());
+		float sum1 = 0f;
+		for(Vehicle obj : Garage) {
+				System.out.println("Vehicle " + obj.getBrand());
+				System.out.println("Repair price " + obj.getPrice());
+				sum1 += obj.getPrice();
+		}
+		
+		System.out.println("Total repair cost Prior: " + sum);
+		System.out.println("Total new repair cost " + sum1);
 		//Garage.remove(0);//remove index 0
 		//Garage.clear();//clear whole ArrayList
 		}
